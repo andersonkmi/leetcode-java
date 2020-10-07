@@ -27,4 +27,9 @@ public class ValidParenthesesTests {
     void validateOddLengthStringWithInvalidChars() {
         assertFalse(cut.isValid("<"));
     }
+
+    @Test
+    void validateWithInvalidChars() {
+        assertFalse(cut.isValid("<>"));
+    }
 }
