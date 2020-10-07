@@ -14,11 +14,16 @@ public class ValidParentheses {
         if (! containsOnlyValidCharacters(input, validChars)) {
             return false;
         }
-        
+
         return false;
     }
 
     private boolean containsOnlyValidCharacters(String input, char[] validChars) {
+        List<Character> validItems = new ArrayList<>();
+        for (char item : validChars) {
+            validItems.add(item);
+        }
+
         var elements = input
                                         .chars()
                                         .mapToObj(item -> (char) item)
@@ -26,11 +31,11 @@ public class ValidParentheses {
                                         .stream()
                                         .distinct().collect(Collectors.toList());
 
-        List<Character> validItems = new ArrayList<>();
-        for (char item : validChars) {
-            validItems.add(item);
+        for (Character item : elements) {
+            if (! validItems.contains(item)) {
+                return false;
+            }
         }
-
-        return elements.equals(validItems);
+        return true;
     }
 }
