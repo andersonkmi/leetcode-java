@@ -32,4 +32,24 @@ public class ValidParenthesesTests {
     void validateWithInvalidChars() {
         assertFalse(cut.isValid("<>"));
     }
+
+    @Test
+    void validateSimpleCase() {
+        assertTrue(cut.isValid("()"));
+    }
+
+    @Test
+    void validateOnlyClosingParentheses() {
+        assertFalse(cut.isValid(")"));
+    }
+
+    @Test
+    void validateOnlyClosingBracket() {
+        assertFalse(cut.isValid("]"));
+    }
+
+    @Test
+    void validateOnlyClosingSet() {
+        assertFalse(cut.isValid("}"));
+    }
 }

@@ -14,14 +14,18 @@ public class ValidParentheses {
     private final char[] validChars = {'(', ')', '[', ']', '{', '}'};
 
     public ValidParentheses() {
-        symbolMapping.put('[', ']');
-        symbolMapping.put('{', '}');
-        symbolMapping.put('(', ')');
+        symbolMapping.put(']', '[');
+        symbolMapping.put('}', '{');
+        symbolMapping.put(')', '(');
     }
 
     public boolean isValid(String input) {
         if (input == null || input.isEmpty()) {
             return true;
+        }
+
+        if (input.length() % 2 == 1) {
+            return false;
         }
 
         if (! containsOnlyValidCharacters(input, validChars)) {
@@ -32,10 +36,23 @@ public class ValidParentheses {
         var characters = convert(input);
         var stack = new Stack<Character>();
         for (var character: characters) {
-
+            // identify if it is an opening character
+            if (isOpeningSymbol(character)) {
+                stack.push(character);
+            } else {
+                var latest = stack.pop();
+                var expected = symbolMapping.get(character);
+                if (! latest.equals(expected)) {
+                    return false;
+                }
+            }
         }
 
-        return false;
+        return true;
+    }
+
+    private boolean isOpeningSymbol(@Nonnull Character item) {
+        return item.equals('{') || item.equals('[') || item.equals('(');
     }
 
     private List<Character> convert(@Nonnull String input) {
