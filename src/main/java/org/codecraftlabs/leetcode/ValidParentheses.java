@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class ValidParentheses {
@@ -23,11 +24,15 @@ public class ValidParentheses {
             return true;
         }
 
-        // Convert input string into a list of Characters
-        var characters = convert(input);
-
         if (! containsOnlyValidCharacters(input, validChars)) {
             return false;
+        }
+
+        // Convert input string into a list of Characters
+        var characters = convert(input);
+        var stack = new Stack<Character>();
+        for (var character: characters) {
+
         }
 
         return false;
