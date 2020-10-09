@@ -44,6 +44,17 @@ public class ValidParenthesesTests {
     }
 
     @Test
+    void validateDoubleOpeningBrackets() {
+        assertFalse(cut.isValid("[["));
+    }
+
+    @Test
+    void validateDoubleOpeningSets() {
+        assertFalse(cut.isValid("{{"));
+    }
+
+
+    @Test
     void validateOnlyClosingParentheses() {
         assertFalse(cut.isValid(")"));
     }
