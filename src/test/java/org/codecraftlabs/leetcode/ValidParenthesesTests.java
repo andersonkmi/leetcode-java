@@ -39,6 +39,11 @@ public class ValidParenthesesTests {
     }
 
     @Test
+    void validateDoubleOpeningParentheses() {
+        assertFalse(cut.isValid("(("));
+    }
+
+    @Test
     void validateOnlyClosingParentheses() {
         assertFalse(cut.isValid(")"));
     }

@@ -47,8 +47,7 @@ public class ValidParentheses {
                 }
             }
         }
-
-        return true;
+        return stack.isEmpty();
     }
 
     private boolean isOpeningSymbol(@Nonnull Character item) {
