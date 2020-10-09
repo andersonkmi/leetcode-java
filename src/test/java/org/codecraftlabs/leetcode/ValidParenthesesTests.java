@@ -68,4 +68,19 @@ public class ValidParenthesesTests {
     void validateOnlyClosingSet() {
         assertFalse(cut.isValid("}"));
     }
+
+    @Test
+    void validateInvertedSymbols() {
+        assertFalse(cut.isValid("]["));
+    }
+
+    @Test
+    void validateCombinations1() {
+        assertTrue(cut.isValid("{}()"));
+    }
+
+    @Test
+    void validateCombinations2() {
+        assertTrue(cut.isValid("([])"));
+    }
 }

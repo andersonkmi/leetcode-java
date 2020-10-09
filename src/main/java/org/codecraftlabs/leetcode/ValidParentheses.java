@@ -32,17 +32,19 @@ public class ValidParentheses {
             return false;
         }
 
-        // Convert input string into a list of Characters
         var characters = convert(input);
         var stack = new Stack<Character>();
         for (var character: characters) {
-            // identify if it is an opening character
             if (isOpeningSymbol(character)) {
                 stack.push(character);
             } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+
                 var latest = stack.pop();
                 var expected = symbolMapping.get(character);
-                if (! latest.equals(expected)) {
+                if (!latest.equals(expected)) {
                     return false;
                 }
             }
