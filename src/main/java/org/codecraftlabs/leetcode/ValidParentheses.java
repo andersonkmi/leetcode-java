@@ -2,6 +2,7 @@ package org.codecraftlabs.leetcode;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +12,6 @@ import java.util.stream.Collectors;
 
 public class ValidParentheses {
     private final Map<Character, Character> symbolMapping = new HashMap<>();
-    private final char[] validChars = {'(', ')', '[', ']', '{', '}'};
 
     public ValidParentheses() {
         symbolMapping.put(']', '[');
@@ -28,7 +28,9 @@ public class ValidParentheses {
             return false;
         }
 
-        if (! containsOnlyValidCharacters(input, validChars)) {
+        var allowedChars = new ArrayList<>(symbolMapping.keySet());
+        allowedChars.addAll(symbolMapping.values());
+        if (! containsOnlyValidCharacters(input, allowedChars)) {
             return false;
         }
 
@@ -53,7 +55,8 @@ public class ValidParentheses {
     }
 
     private boolean isOpeningSymbol(@Nonnull Character item) {
-        return item.equals('{') || item.equals('[') || item.equals('(');
+        var openingSymbols = symbolMapping.values();
+        return openingSymbols.contains(item);
     }
 
     private List<Character> convert(@Nonnull String input) {
@@ -64,12 +67,7 @@ public class ValidParentheses {
         return result;
     }
 
-    private boolean containsOnlyValidCharacters(String input, char[] validChars) {
-        List<Character> validItems = new ArrayList<>();
-        for (char item : validChars) {
-            validItems.add(item);
-        }
-
+    private boolean containsOnlyValidCharacters(String input, Collection<Character> validItems) {
         var elements = input
                                         .chars()
                                         .mapToObj(item -> (char) item)
