@@ -11,15 +11,12 @@ import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class ValidParentheses {
-    private final Map<Character, Character> symbolMapping = new HashMap<>();
-
-    public ValidParentheses() {
+    public boolean isValid(String input) {
+        Map<Character, Character> symbolMapping = new HashMap<>();
         symbolMapping.put(']', '[');
         symbolMapping.put('}', '{');
         symbolMapping.put(')', '(');
-    }
 
-    public boolean isValid(String input) {
         if (input == null || input.isEmpty()) {
             return true;
         }
@@ -37,7 +34,7 @@ public class ValidParentheses {
         var characters = convert(input);
         var stack = new Stack<Character>();
         for (var character: characters) {
-            if (isOpeningSymbol(character)) {
+            if (isOpeningSymbol(character, symbolMapping)) {
                 stack.push(character);
             } else {
                 if (stack.isEmpty()) {
@@ -54,7 +51,7 @@ public class ValidParentheses {
         return stack.isEmpty();
     }
 
-    private boolean isOpeningSymbol(@Nonnull Character item) {
+    private boolean isOpeningSymbol(@Nonnull Character item, Map<Character, Character> symbolMapping) {
         var openingSymbols = symbolMapping.values();
         return openingSymbols.contains(item);
     }
