@@ -9,21 +9,26 @@ public class MultiplyStringsTest {
 
     @Test
     void testCase001() {
-        assertEquals("1", cut.multiply("0", "1"));
+        assertEquals("0", cut.multiply("0", "1"));
     }
 
     @Test
     void testCase002() {
-        assertEquals("1", cut.multiply("1", "0"));
+        assertEquals("0", cut.multiply("1", "0"));
     }
 
     @Test
     void testCase003() {
-        assertEquals("2", cut.multiply("1", "1"));
+        assertEquals("1", cut.multiply("1", "1"));
     }
 
     @Test
     void testCase004() {
-        assertEquals("11", cut.multiply("10", "1"));
+        assertEquals("10", cut.multiply("10", "1"));
+    }
+
+    @Test
+    void testCase005() {
+        assertEquals("56088", cut.multiply("123", "456"));
     }
 }

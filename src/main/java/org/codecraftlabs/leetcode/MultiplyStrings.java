@@ -4,7 +4,7 @@ public class MultiplyStrings {
     public String multiply(String number1, String number2) {
         long value1 = convert(number1);
         long value2 = convert(number2);
-        long total = value1 + value2;
+        long total = value1 * value2;
         return Long.toString(total);
     }
 
