@@ -31,4 +31,9 @@ public class MultiplyStringsTest {
     void testCase005() {
         assertEquals("56088", cut.multiply("123", "456"));
     }
+
+    @Test
+    void testCase006() {
+        assertEquals("419254329864656431168468", cut.multiply("498828660196", "840477629533"));
+    }
 }
