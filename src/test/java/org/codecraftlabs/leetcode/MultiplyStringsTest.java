@@ -36,4 +36,9 @@ public class MultiplyStringsTest {
     void testCase006() {
         assertEquals("419254329864656431168468", cut.multiply("498828660196", "840477629533"));
     }
+
+    @Test
+    void testCase007() {
+        assertEquals("800207406037324579815815608581", cut.multiply("9333852702227987", "85731737104263"));
+    }
 }
