@@ -14,12 +14,13 @@ public class MultiplyStrings {
         var buffer = new StringBuilder(number);
         var reversed = buffer.reverse().toString();
 
-        long total = 0;
+        BigDecimal total = BigDecimal.ZERO;
+        BigDecimal value = new BigDecimal(10);
         for (int index = 0; index < reversed.length(); index++) {
             int asciiValue = reversed.charAt(index);
             long numValue = asciiValue - 48;
-            total += numValue * Math.pow(10, index);
+            total = total.add(value.pow(index).multiply(new BigDecimal(numValue)));
         }
-        return BigDecimal.valueOf(total);
+        return total;
     }
 }
