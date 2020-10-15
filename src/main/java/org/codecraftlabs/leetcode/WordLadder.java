@@ -14,7 +14,8 @@ public class WordLadder {
         Optional<Node> endNodeOpt = nodes.stream().filter(item -> item.getWord().equals(endWord)).findFirst();
 
         if (startNodeOpt.isPresent() && endNodeOpt.isPresent()) {
-            Node startingNode = startNodeOpt.get();
+            Node startNode = startNodeOpt.get();
+            Node endNode = endNodeOpt.get();
         }
 
         return steps;
