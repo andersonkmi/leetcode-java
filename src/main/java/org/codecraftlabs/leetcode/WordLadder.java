@@ -35,7 +35,7 @@ public class WordLadder {
                 if (currentNode.isVisited()) {
                     continue;
                 }
-                currentNode.setIsVisited(true);
+                currentNode.markVisited();
 
                 if (currentNode.equals(endNode)) {
                     break;

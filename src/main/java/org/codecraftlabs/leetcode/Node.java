@@ -18,8 +18,8 @@ public class Node {
         return word;
     }
 
-    public void setIsVisited(boolean isVisited) {
-        this.isVisited = isVisited;
+    public void markVisited() {
+        this.isVisited = true;
     }
 
     public boolean isVisited() {
