@@ -8,26 +8,26 @@ import java.util.Optional;
 public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         // Creates the graph with the existing dictionary words
-        List<Node> nodes = createNodes(wordList);
+        var nodes = createNodes(wordList);
 
         // this implementation assumes it has one and only one possible starting node
         // Retrieves the starting node (the first candidate only)
-        List<String> startingString = getNextWords(beginWord, wordList);
-        Optional<Node> startNodeOpt = nodes.stream().filter(item -> item.getWord().equals(startingString.get(0))).findFirst();
+        var startingString = getNextWords(beginWord, wordList);
+        var startNodeOpt = nodes.stream().filter(item -> item.getWord().equals(startingString.get(0))).findFirst();
 
         // Retrieves the end node
-        Optional<Node> endNodeOpt = nodes.stream().filter(item -> item.getWord().equals(endWord)).findFirst();
+        var endNodeOpt = nodes.stream().filter(item -> item.getWord().equals(endWord)).findFirst();
 
-        int steps = 0;
+        var steps = 0;
         if (startNodeOpt.isPresent() && endNodeOpt.isPresent()) {
-            Node startNode = startNodeOpt.get();
-            Node endNode = endNodeOpt.get();
+            var startNode = startNodeOpt.get();
+            var endNode = endNodeOpt.get();
 
             LinkedList<Node> nextToVisit = new LinkedList<>();
             nextToVisit.add(startNode);
 
             while(!nextToVisit.isEmpty()) {
-                Node currentNode = nextToVisit.remove();
+                var currentNode = nextToVisit.remove();
                 if (currentNode.isVisited()) {
                     continue;
                 }
@@ -47,7 +47,7 @@ public class WordLadder {
     private List<Node> createNodes(List<String> wordList) {
         List<Node> nodes = new ArrayList<>();
         for (String word : wordList) {
-            Node node = new Node(word);
+            var node = new Node(word);
             nodes.add(node);
         }
 
@@ -74,7 +74,7 @@ public class WordLadder {
     }
 
     private int differentChars(String str1, String str2) {
-        int total = 0;
+        var total = 0;
         for (int index = 0; index < str1.length(); index++) {
             if (str1.charAt(index) != str2.charAt(index)) {
                 total++;
