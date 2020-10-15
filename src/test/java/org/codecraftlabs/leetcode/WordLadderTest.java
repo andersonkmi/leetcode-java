@@ -16,4 +16,11 @@ public class WordLadderTest {
         int value = wordLadder.ladderLength("hit", "cog", wordList);
         assertEquals(5, value);
     }
+
+    @Test
+    void testCase002() {
+        List<String> wordList = Arrays.asList("hot","dot","dog","lot","log");
+        int value = wordLadder.ladderLength("hit", "cog", wordList);
+        assertEquals(0, value);
+    }
 }
