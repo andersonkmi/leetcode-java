@@ -15,7 +15,7 @@ public class WordLadder {
         List<Node> nodes = createNodes(wordList);
 
         // this implementation assumes it has one and only one possible starting node
-        // Retrieves the starting node
+        // Retrieves the starting node (the first candidate only)
         List<String> startingString = getNextWords(beginWord, wordList);
         Optional<Node> startNodeOpt = nodes.stream().filter(item -> item.getWord().equals(startingString.get(0))).findFirst();
 
