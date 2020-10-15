@@ -7,7 +7,7 @@ import java.util.Objects;
 class Node {
     private final String word;
     private boolean isVisited;
-    private List<Node> nodes = new ArrayList<>();
+    private final List<Node> nodes = new ArrayList<>();
 
     Node(String word) {
         this.word = word;
