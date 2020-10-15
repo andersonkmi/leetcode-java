@@ -1,6 +1,7 @@
 package org.codecraftlabs.leetcode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,24 @@ public class WordLadder {
         if (startNodeOpt.isPresent() && endNodeOpt.isPresent()) {
             Node startNode = startNodeOpt.get();
             Node endNode = endNodeOpt.get();
+
+            LinkedList<Node> nextToVisit = new LinkedList<>();
+            nextToVisit.add(startNode);
+
+            while(!nextToVisit.isEmpty()) {
+                Node currentNode = nextToVisit.remove();
+                if (currentNode.equals(endNode)) {
+                    break;
+                }
+
+                if (currentNode.isVisited()) {
+                    continue;
+                }
+                currentNode.setIsVisited(true);
+
+                nextToVisit.addAll(currentNode.getNodes());
+                steps++;
+            }
         }
 
         return steps;
