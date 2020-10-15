@@ -32,14 +32,14 @@ public class WordLadder {
 
             while(!nextToVisit.isEmpty()) {
                 Node currentNode = nextToVisit.remove();
-                if (currentNode.equals(endNode)) {
-                    break;
-                }
-
                 if (currentNode.isVisited()) {
                     continue;
                 }
                 currentNode.setIsVisited(true);
+
+                if (currentNode.equals(endNode)) {
+                    break;
+                }
 
                 nextToVisit.addAll(currentNode.getNodes());
                 steps++;
