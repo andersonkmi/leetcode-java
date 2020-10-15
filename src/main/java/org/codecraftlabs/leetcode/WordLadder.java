@@ -9,6 +9,12 @@ public class WordLadder {
         int steps = 0;
 
         List<Node> nodes = createNodes(wordList);
+        List<String> startingString = getNextWords(beginWord, wordList);
+        Optional<Node> startNodeOpt = nodes.stream().filter(item -> item.getWord().equals(startingString.get(0))).findFirst();
+
+        if (startNodeOpt.isPresent()) {
+            Node startingNode = startNodeOpt.get();
+        }
 
         return steps;
     }
