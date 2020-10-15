@@ -45,7 +45,6 @@ public class WordLadder {
                 steps++;
             }
         }
-
         return steps;
     }
 
