@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WordLadderTest {
-    private WordLadder wordLadder = new WordLadder();
+    private final WordLadder wordLadder = new WordLadder();
 
     @Test
     void testCase001() {
