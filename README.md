@@ -6,6 +6,8 @@ to keep up with the language.
 
 ## Exercises developed so far
 * Valid parentheses
+* [Multiply strings](https://leetcode.com/problems/multiply-strings/)
+* [Word ladder](https://leetcode.com/problems/word-ladder/)
 
 ## Build and test
 
