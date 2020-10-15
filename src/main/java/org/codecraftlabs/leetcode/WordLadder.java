@@ -2,21 +2,34 @@ package org.codecraftlabs.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        if (!wordList.contains(endWord)) {
-            return 0;
-        }
         int steps = 0;
-        boolean found = false;
 
-        while (!found) {
-
-        }
-        List<String> nextSteps = getNextWords(beginWord, wordList);
+        List<Node> nodes = createNodes(wordList);
 
         return steps;
+    }
+
+    private List<Node> createNodes(List<String> wordList) {
+        List<Node> nodes = new ArrayList<>();
+        for (String word : wordList) {
+            Node node = new Node(word);
+            nodes.add(node);
+        }
+
+        // for each node create the neighbor items
+        for (Node item : nodes) {
+            String word = item.getWord();
+            List<String> others = getNextWords(word, wordList);
+            for (String other : others) {
+                Optional<Node> node = nodes.stream().filter(element -> element.getWord().equals(other)).findFirst();
+                node.ifPresent(item::addNode);
+            }
+        }
+        return nodes;
     }
 
     private List<String> getNextWords(String word, List<String> wordList) {
