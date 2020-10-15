@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Node {
+class Node {
     private final String word;
     private boolean isVisited;
     private List<Node> nodes = new ArrayList<>();
