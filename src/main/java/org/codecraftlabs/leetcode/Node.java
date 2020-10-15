@@ -6,14 +6,24 @@ import java.util.Objects;
 
 public class Node {
     private final String word;
+    private boolean isVisited;
     private List<Node> nodes = new ArrayList<>();
 
     Node(String word) {
         this.word = word;
+        this.isVisited = false;
     }
 
     public String getWord() {
         return word;
+    }
+
+    public void setIsVisited(boolean isVisited) {
+        this.isVisited = isVisited;
+    }
+
+    public boolean isVisited() {
+        return isVisited;
     }
 
     public void addNode(Node node) {
