@@ -7,13 +7,22 @@ import java.util.Optional;
 
 public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        int steps = 0;
+        if (!wordList.contains(endWord)) {
+            return 0;
+        }
 
+        // Creates the graph with the existing dictionary words
         List<Node> nodes = createNodes(wordList);
+
+        // this implementation assumes it has one and only one possible starting node
+        // Retrieves the starting node
         List<String> startingString = getNextWords(beginWord, wordList);
         Optional<Node> startNodeOpt = nodes.stream().filter(item -> item.getWord().equals(startingString.get(0))).findFirst();
+
+        // Retrieves the end node
         Optional<Node> endNodeOpt = nodes.stream().filter(item -> item.getWord().equals(endWord)).findFirst();
 
+        int steps = 0;
         if (startNodeOpt.isPresent() && endNodeOpt.isPresent()) {
             Node startNode = startNodeOpt.get();
             Node endNode = endNodeOpt.get();
