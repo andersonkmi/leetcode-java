@@ -1,26 +1,73 @@
 package org.codecraftlabs.leetcode;
 
 import javax.annotation.Nonnull;
-import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TwoCharactersProblem {
+    private final CharacterPairBuilder characterPairBuilder = new CharacterPairBuilder();
+
     public int execute(@Nonnull String input) {
-        return 0;
+        var uniqueChars = getUniqueCharacters(input);
+        var pairs = generatePairs(uniqueChars);
+        var resultingStrings = filterCharPairsFromString(pairs, input);
+        var itemsWithAlternatingChars = resultingStrings.stream().filter(this::isStringWithAlternatingCharacters).collect(Collectors.toSet());
+        String longestAlternatingString = itemsWithAlternatingChars.stream().sorted((o1, o2) -> {
+            if (o1.length() > o2.length()) {
+                return -1;
+            } else if (o1.length() < o2.length()) {
+                return 1;
+            }
+            return 0;
+        }).toList().getFirst();
+        return longestAlternatingString.length();
     }
 
     @Nonnull
-    private Set<Character> getUniqueCharacters(@Nonnull String input) {
+    private List<Character> getUniqueCharacters(@Nonnull String input) {
         Set<Character> items = new HashSet<>();
         for (int index = 0; index < input.length(); index++) {
             items.add(input.charAt(index));
         }
-        return items;
+        return items.stream().toList();
     }
 
     @Nonnull
-    private Set<Pair<Character, Character>> generatePairs(@Nonnull Set<Character> input) {
-        return Collections.emptySet();
+    private Set<Pair<Character, Character>> generatePairs(@Nonnull List<Character> input) {
+        return characterPairBuilder.generatePairs(input);
+    }
+
+    @Nonnull
+    private Set<String> filterCharPairsFromString(@Nonnull Set<Pair<Character, Character>> pairs, @Nonnull String input) {
+        return pairs.stream()
+                .map(item -> filterPairFromInput(item, input))
+                .collect(Collectors.toSet());
+    }
+
+    @Nonnull
+    private String filterPairFromInput(@Nonnull Pair<Character, Character> pair, @Nonnull String input) {
+        char first = pair.first();
+        char second = pair.second();
+        StringBuilder buffer = new StringBuilder();
+        for (int index = 0; index < input.length(); index++) {
+            if (input.charAt(index) == first || input.charAt(index) == second) {
+                buffer.append(input.charAt(index));
+            }
+        }
+        return buffer.toString();
+    }
+
+    private boolean isStringWithAlternatingCharacters(@Nonnull String input) {
+        int previousChar = input.charAt(0);
+        for (int index = 1; index < input.length(); index++) {
+            char currentChar = input.charAt(index);
+            if (currentChar == previousChar) {
+                return false;
+            }
+            previousChar = currentChar;
+        }
+        return true;
     }
 }
