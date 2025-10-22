@@ -17,4 +17,10 @@ public class TwoCharactersProblemTest {
         int result = this.twoCharactersProblem.execute("beabeefeab");
         Assertions.assertThat(result).isEqualTo(5);
     }
+
+    @Test
+    public void testAnotherCase() {
+        int result = this.twoCharactersProblem.execute("abaacdabd");
+        Assertions.assertThat(result).isEqualTo(4);
+    }
 }
