@@ -7,11 +7,13 @@ import java.util.Set;
 
 class CharacterPairBuilder {
     @Nonnull
-    Set<Pair<Character, Character>> generatePairs(@Nonnull List<Character> characters) {
+    Set<Pair<Character, Character>> generatePairs(@Nonnull Set<Character> characters) {
         Set<Pair<Character, Character>> resultingPairs = new HashSet<>();
-        for(int index1 = 0; index1 < characters.size() - 1; index1++) {
-            for (int index2 = index1 + 1; index2 < characters.size(); index2++) {
-                var pair = new Pair<>(characters.get(index1), characters.get(index2));
+
+        List<Character> converted = characters.stream().sorted().toList();
+        for(int index1 = 0; index1 < converted.size() - 1; index1++) {
+            for (int index2 = index1 + 1; index2 < converted.size(); index2++) {
+                var pair = new Pair<>(converted.get(index1), converted.get(index2));
                 resultingPairs.add(pair);
             }
         }

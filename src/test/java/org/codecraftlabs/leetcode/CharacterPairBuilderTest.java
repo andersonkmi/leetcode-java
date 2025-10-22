@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 import java.util.Set;
 
 public class CharacterPairBuilderTest {
@@ -17,26 +16,26 @@ public class CharacterPairBuilderTest {
 
     @Test
     public void testPairGenerationEmptyList() {
-        var results = this.characterPairBuilder.generatePairs(List.of());
+        var results = this.characterPairBuilder.generatePairs(Set.of());
         Assertions.assertThat(results).isEmpty();
     }
 
     @Test
     public void testPairGenerationListWithOneChar() {
-        var results = this.characterPairBuilder.generatePairs(List.of('a'));
+        var results = this.characterPairBuilder.generatePairs(Set.of('a'));
         Assertions.assertThat(results).isEmpty();
     }
 
     @Test
     public void testPairGenerationListWithTwoChars() {
-        var results = this.characterPairBuilder.generatePairs(List.of('a', 'd'));
+        var results = this.characterPairBuilder.generatePairs(Set.of('a', 'd'));
         Assertions.assertThat(results).hasSize(1);
         Assertions.assertThat(results).containsOnly(new Pair<>('a', 'd'));
     }
 
     @Test
     public void testPairGenerationListWithABD() {
-        var results = this.characterPairBuilder.generatePairs(List.of('a', 'b', 'd'));
+        var results = this.characterPairBuilder.generatePairs(Set.of('a', 'b', 'd'));
         Assertions.assertThat(results).hasSize(3);
         Assertions.assertThat(results).containsAll(
                 Set.of(new Pair<>('a', 'b'),
@@ -47,7 +46,7 @@ public class CharacterPairBuilderTest {
 
     @Test
     public void testPairGenerationListWithABDG() {
-        var results = this.characterPairBuilder.generatePairs(List.of('a', 'b', 'd', 'g'));
+        var results = this.characterPairBuilder.generatePairs(Set.of('a', 'b', 'd', 'g'));
         Assertions.assertThat(results).hasSize(6);
         Assertions.assertThat(results).containsAll(
                 Set.of(new Pair<>('a', 'b'),
