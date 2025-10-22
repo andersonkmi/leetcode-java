@@ -1,8 +1,7 @@
-# Leetcode coding exercises in Java 11
+# Leetcode coding exercises in Java 21
 
 ## Purpose
-This project has been created to save the exercises I am doing using java 11 programming language. It is a way 
-to keep up with the language.
+This project has been created to save the exercises I am doing using java 21 programming language.
 
 ## Exercises developed so far
 * [Valid parentheses](https://leetcode.com/problems/valid-parentheses/)
