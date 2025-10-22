@@ -8,6 +8,7 @@ to keep up with the language.
 * [Valid parentheses](https://leetcode.com/problems/valid-parentheses/)
 * [Multiply strings](https://leetcode.com/problems/multiply-strings/)
 * [Word ladder](https://leetcode.com/problems/word-ladder/)
+* [Two characters](https://www.hackerrank.com/challenges/two-characters/problem)
 
 ## Build and test
 
