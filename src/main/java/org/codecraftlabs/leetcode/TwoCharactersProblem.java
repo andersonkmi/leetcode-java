@@ -12,7 +12,7 @@ public class TwoCharactersProblem {
 
     public int execute(@Nonnull String input) {
         var uniqueChars = getUniqueCharacters(input);
-        var pairs = generatePairs(uniqueChars);
+        var pairs =  characterPairBuilder.generatePairs(uniqueChars);
         var resultingStrings = pairFilteringStringGenerator.filterCharPairsFromString(pairs, input);
         var itemsWithAlternatingChars = resultingStrings.stream().filter(this::isStringWithAlternatingCharacters).collect(Collectors.toSet());
         String longestAlternatingString = itemsWithAlternatingChars.stream().sorted((o1, o2) -> {
@@ -33,11 +33,6 @@ public class TwoCharactersProblem {
             items.add(input.charAt(index));
         }
         return items.stream().toList();
-    }
-
-    @Nonnull
-    private Set<Pair<Character, Character>> generatePairs(@Nonnull List<Character> input) {
-        return characterPairBuilder.generatePairs(input);
     }
 
     private boolean isStringWithAlternatingCharacters(@Nonnull String input) {
