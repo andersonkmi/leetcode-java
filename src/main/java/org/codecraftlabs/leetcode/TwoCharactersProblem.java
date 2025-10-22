@@ -8,11 +8,12 @@ import java.util.stream.Collectors;
 
 public class TwoCharactersProblem {
     private final CharacterPairBuilder characterPairBuilder = new CharacterPairBuilder();
+    private final PairFilteringStringGenerator pairFilteringStringGenerator = new PairFilteringStringGenerator();
 
     public int execute(@Nonnull String input) {
         var uniqueChars = getUniqueCharacters(input);
         var pairs = generatePairs(uniqueChars);
-        var resultingStrings = filterCharPairsFromString(pairs, input);
+        var resultingStrings = pairFilteringStringGenerator.filterCharPairsFromString(pairs, input);
         var itemsWithAlternatingChars = resultingStrings.stream().filter(this::isStringWithAlternatingCharacters).collect(Collectors.toSet());
         String longestAlternatingString = itemsWithAlternatingChars.stream().sorted((o1, o2) -> {
             if (o1.length() > o2.length()) {
@@ -37,26 +38,6 @@ public class TwoCharactersProblem {
     @Nonnull
     private Set<Pair<Character, Character>> generatePairs(@Nonnull List<Character> input) {
         return characterPairBuilder.generatePairs(input);
-    }
-
-    @Nonnull
-    private Set<String> filterCharPairsFromString(@Nonnull Set<Pair<Character, Character>> pairs, @Nonnull String input) {
-        return pairs.stream()
-                .map(item -> filterPairFromInput(item, input))
-                .collect(Collectors.toSet());
-    }
-
-    @Nonnull
-    private String filterPairFromInput(@Nonnull Pair<Character, Character> pair, @Nonnull String input) {
-        char first = pair.first();
-        char second = pair.second();
-        StringBuilder buffer = new StringBuilder();
-        for (int index = 0; index < input.length(); index++) {
-            if (input.charAt(index) == first || input.charAt(index) == second) {
-                buffer.append(input.charAt(index));
-            }
-        }
-        return buffer.toString();
     }
 
     private boolean isStringWithAlternatingCharacters(@Nonnull String input) {
