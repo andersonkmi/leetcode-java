@@ -5,7 +5,7 @@ import javax.annotation.CheckForNull;
 class AlternateCharsVerifier {
     boolean isStringWithAlternatingCharacters(@CheckForNull String input) {
         if (input == null || input.isBlank()) {
-            return true;
+            return false;
         }
 
         int previousChar = input.charAt(0);

@@ -15,12 +15,18 @@ public class AlternateCharsVerifierTest {
     @Test
     public void testWithEmptyString() {
         boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters("");
-        Assertions.assertThat(result).isTrue();
+        Assertions.assertThat(result).isFalse();
     }
 
     @Test
     public void testWithNullString() {
         boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters(null);
+        Assertions.assertThat(result).isFalse();
+    }
+
+    @Test
+    public void testWithSingleCharString() {
+        boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters("a");
         Assertions.assertThat(result).isTrue();
     }
 }
