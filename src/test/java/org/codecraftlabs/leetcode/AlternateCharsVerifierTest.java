@@ -29,4 +29,16 @@ public class AlternateCharsVerifierTest {
         boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters("a");
         Assertions.assertThat(result).isTrue();
     }
+
+    @Test
+    public void testWithTwoCharString() {
+        boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters("ac");
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    public void testWithThreeCharString() {
+        boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters("aca");
+        Assertions.assertThat(result).isTrue();
+    }
 }
