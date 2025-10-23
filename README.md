@@ -8,6 +8,7 @@ This project has been created to save the exercises I am doing using java 21 pro
 * [Multiply strings](https://leetcode.com/problems/multiply-strings/)
 * [Word ladder](https://leetcode.com/problems/word-ladder/)
 * [Two characters](https://www.hackerrank.com/challenges/two-characters/problem)
+* [Permutations](https://leetcode.com/problems/permutations/)
 
 ## Build and test
 

@@ -16,9 +16,6 @@ public class PermutationGenerator {
         return result;
     }
 
-    /**
-     * Recursive helper method using backtracking to generate permutations
-     */
     private void backtrack(int[] nums,
                                   List<Integer> currentPermutation,
                                   boolean[] used,
