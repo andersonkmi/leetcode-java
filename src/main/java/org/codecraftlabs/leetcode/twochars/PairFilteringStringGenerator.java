@@ -1,6 +1,6 @@
 package org.codecraftlabs.leetcode.twochars;
 
-import org.codecraftlabs.leetcode.Pair;
+import org.codecraftlabs.leetcode.permutation.Pair;
 
 import javax.annotation.Nonnull;
 import java.util.Set;

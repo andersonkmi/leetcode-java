@@ -1,4 +1,4 @@
-package org.codecraftlabs.leetcode;
+package org.codecraftlabs.leetcode.mutiplication;
 
 import java.math.BigDecimal;
 

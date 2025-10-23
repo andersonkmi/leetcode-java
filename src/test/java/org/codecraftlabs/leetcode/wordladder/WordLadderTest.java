@@ -1,4 +1,4 @@
-package org.codecraftlabs.leetcode;
+package org.codecraftlabs.leetcode.wordladder;
 
 import org.junit.jupiter.api.Test;
 

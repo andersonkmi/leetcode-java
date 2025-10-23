@@ -1,7 +1,7 @@
 package org.codecraftlabs.leetcode.twochars;
 
 import org.assertj.core.api.Assertions;
-import org.codecraftlabs.leetcode.Pair;
+import org.codecraftlabs.leetcode.permutation.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package org.codecraftlabs.leetcode;
+package org.codecraftlabs.leetcode.parentheses;
 
 import org.junit.jupiter.api.Test;
 

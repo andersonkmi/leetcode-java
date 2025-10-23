@@ -1,5 +1,6 @@
-package org.codecraftlabs.leetcode;
+package org.codecraftlabs.leetcode.muitiplication;
 
+import org.codecraftlabs.leetcode.mutiplication.MultiplyStrings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

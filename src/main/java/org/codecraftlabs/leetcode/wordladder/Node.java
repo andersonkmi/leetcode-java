@@ -1,4 +1,4 @@
-package org.codecraftlabs.leetcode;
+package org.codecraftlabs.leetcode.wordladder;
 
 import java.util.ArrayList;
 import java.util.List;
