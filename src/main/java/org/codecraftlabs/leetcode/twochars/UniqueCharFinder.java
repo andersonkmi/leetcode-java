@@ -1,4 +1,4 @@
-package org.codecraftlabs.leetcode;
+package org.codecraftlabs.leetcode.twochars;
 
 import javax.annotation.Nonnull;
 import java.util.HashSet;
