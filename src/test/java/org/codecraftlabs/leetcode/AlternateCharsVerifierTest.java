@@ -17,4 +17,10 @@ public class AlternateCharsVerifierTest {
         boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters("");
         Assertions.assertThat(result).isTrue();
     }
+
+    @Test
+    public void testWithNullString() {
+        boolean result = alternateCharsVerifier.isStringWithAlternatingCharacters(null);
+        Assertions.assertThat(result).isTrue();
+    }
 }
