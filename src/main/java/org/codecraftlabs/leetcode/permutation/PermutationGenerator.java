@@ -11,6 +11,7 @@ public class PermutationGenerator {
         for (int index = 0; index < numbers.length; index++) {
             List<Integer> items = new ArrayList<>();
             items.add(numbers[index]);
+            results.add(items);
             for (int index2 = 0; index2 < numbers.length; index2++) {
                 if (index == index2) {
                     continue;
