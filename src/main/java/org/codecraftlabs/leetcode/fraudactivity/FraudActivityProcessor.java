@@ -11,8 +11,8 @@ public class FraudActivityProcessor {
         for (int index = trailingDays; index < expenditures.size(); index++) {
             int currentExpenditure = expenditures.get(index);
             var pastExpenditures = createExpenditureList(index - trailingDays, index, expenditures);
-            int median = calculateMedian(pastExpenditures);
-            int threshold = calculateThreshold(median);
+            double median = calculateMedian(pastExpenditures);
+            double threshold = calculateThreshold(median);
             notificationCounter = incrementNotificationCounter(threshold, currentExpenditure, notificationCounter);
         }
         return notificationCounter;
@@ -23,24 +23,24 @@ public class FraudActivityProcessor {
         return new ArrayList<>(original.subList(start, end));
     }
 
-    private int calculateThreshold(int referenceValue) {
+    private double calculateThreshold(double referenceValue) {
         return referenceValue * 2;
     }
 
-    private int incrementNotificationCounter(int threshold, int currentExpenditure, int notificationCounter) {
-        if (currentExpenditure < threshold) {
-            return notificationCounter;
+    private int incrementNotificationCounter(double threshold, double currentExpenditure, int notificationCounter) {
+        if (currentExpenditure >= threshold) {
+            return notificationCounter + 1;
         }
-        return notificationCounter + 1;
+        return notificationCounter;
     }
 
-    private int calculateMedian(@Nonnull List<Integer> numbers) {
+    private double calculateMedian(@Nonnull List<Integer> numbers) {
         Collections.sort(numbers);
         if (numbers.size() % 2 == 0) {
             int middleIndex = numbers.size() / 2;
             int value1 = numbers.get(middleIndex);
             int value2 = numbers.get(middleIndex - 1);
-            return (value1 + value2) / 2;
+            return (double) (value1 + value2) / 2;
         }
         int middleIndex = numbers.size() / 2;
         return numbers.get(middleIndex);

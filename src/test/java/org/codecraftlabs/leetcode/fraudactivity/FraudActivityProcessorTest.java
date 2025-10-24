@@ -31,4 +31,13 @@ public class FraudActivityProcessorTest {
         var result = this.fraudActivityProcessor.notifyFraudulentExpenditures(expenditures, trailingDays);
         Assertions.assertThat(result).isEqualTo(1);
     }
+
+    @Test
+    public void testWithThirdSampleDataFromExercise() {
+        List<Integer> expenditures = List.of(1, 2, 3, 4, 4);
+        int trailingDays = 4;
+
+        var result = this.fraudActivityProcessor.notifyFraudulentExpenditures(expenditures, trailingDays);
+        Assertions.assertThat(result).isEqualTo(0);
+    }
 }
