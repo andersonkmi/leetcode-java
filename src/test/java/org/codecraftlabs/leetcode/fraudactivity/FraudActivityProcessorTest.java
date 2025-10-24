@@ -17,9 +17,18 @@ public class FraudActivityProcessorTest {
     @Test
     public void testWithSampleDataFromExercise() {
         List<Integer> expenditures = List.of(2, 3, 4, 2, 3, 6, 8, 4, 5);
-        int lookbackDays = 5;
+        int trailingDays = 5;
 
-        var result = this.fraudActivityProcessor.notifyFraudulentExpenditures(expenditures, lookbackDays);
+        var result = this.fraudActivityProcessor.notifyFraudulentExpenditures(expenditures, trailingDays);
         Assertions.assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    public void testWithAnotherSampleDataFromExercise() {
+        List<Integer> expenditures = List.of(10, 20, 30, 40, 50);
+        int trailingDays = 3;
+
+        var result = this.fraudActivityProcessor.notifyFraudulentExpenditures(expenditures, trailingDays);
+        Assertions.assertThat(result).isEqualTo(1);
     }
 }
