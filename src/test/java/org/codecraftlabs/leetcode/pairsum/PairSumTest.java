@@ -15,6 +15,12 @@ public class PairSumTest {
     }
 
     @Test
+    public void when_null_list() {
+        var result = this.pairSum.pairSum(null, 0);
+        Assertions.assertThat(result).isEmpty();
+    }
+
+    @Test
     public void test_empty_list_should_return_empty_result() {
         var result = this.pairSum.pairSum(List.of(), 3);
         Assertions.assertThat(result).isEmpty();
