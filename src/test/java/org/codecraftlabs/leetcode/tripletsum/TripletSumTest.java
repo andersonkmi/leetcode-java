@@ -49,4 +49,15 @@ public class TripletSumTest {
         var result = this.tripletSum.tripletSum(numbers);
         Assertions.assertThat(result).isEmpty();
     }
+
+    @Test
+    public void when_input_list_has_same_values_should_return_value() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(0);
+        numbers.add(0);
+        numbers.add(0);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactly(List.of(0, 0, 0));
+    }
 }
