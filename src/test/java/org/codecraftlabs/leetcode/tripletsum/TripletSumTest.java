@@ -24,4 +24,19 @@ public class TripletSumTest {
         List<List<Integer>> results = this.tripletSum.tripletSumBruteForce(List.of(0, -1, 2, -3, 1));
         Assertions.assertThat(results).isEqualTo(expectedResults);
     }
+
+    @Test
+    public void when_number_list_is_empty_should_return_empty_results() {
+        var result = this.tripletSum.tripletSum(new ArrayList<>());
+        Assertions.assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void when_input_list_single_item_should_return_empty_results() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(0);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).isEmpty();
+    }
 }
