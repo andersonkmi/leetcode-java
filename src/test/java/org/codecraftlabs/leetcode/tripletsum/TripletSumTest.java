@@ -71,4 +71,18 @@ public class TripletSumTest {
         var result = this.tripletSum.tripletSum(numbers);
         Assertions.assertThat(result).isEmpty();
     }
+
+    @Test
+    public void when_input_has_triplets_should_return() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(0);
+        numbers.add(0);
+        numbers.add(1);
+        numbers.add(-1);
+        numbers.add(1);
+        numbers.add(-1);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactly(List.of(-1, 0, 1));
+    }
 }
