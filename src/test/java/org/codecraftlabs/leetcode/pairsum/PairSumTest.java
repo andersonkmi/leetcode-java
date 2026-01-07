@@ -20,4 +20,9 @@ public class PairSumTest {
         Assertions.assertThat(result).isEmpty();
     }
 
+    @Test
+    public void when_list_single_element_should_return_empty_result() {
+        var result = this.pairSum.pairSum(List.of(1), 5);
+        Assertions.assertThat(result).isEmpty();
+    }
 }
