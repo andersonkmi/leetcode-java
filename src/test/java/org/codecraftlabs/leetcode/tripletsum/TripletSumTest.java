@@ -39,4 +39,14 @@ public class TripletSumTest {
         var result = this.tripletSum.tripletSum(numbers);
         Assertions.assertThat(result).isEmpty();
     }
+
+    @Test
+    public void when_input_list_has_two_items_should_return_empty_result() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(-1);
+        numbers.add(1);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).isEmpty();
+    }
 }
