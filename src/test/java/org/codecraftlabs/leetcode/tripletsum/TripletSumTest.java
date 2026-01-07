@@ -85,4 +85,137 @@ public class TripletSumTest {
         var result = this.tripletSum.tripletSum(numbers);
         Assertions.assertThat(result).containsExactly(List.of(-1, 0, 1));
     }
+
+    @Test
+    public void when_three_elements_sum_to_zero_should_return_triplet() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(-1);
+        numbers.add(0);
+        numbers.add(1);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactly(List.of(-1, 0, 1));
+    }
+
+    @Test
+    public void when_three_elements_dont_sum_to_zero_should_return_empty() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void when_all_positive_numbers_should_return_empty() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void when_all_negative_numbers_should_return_empty() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(-5);
+        numbers.add(-4);
+        numbers.add(-3);
+        numbers.add(-2);
+        numbers.add(-1);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void when_multiple_triplets_exist_should_return_all() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(-1);
+        numbers.add(0);
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(-1);
+        numbers.add(-4);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactlyInAnyOrder(
+            List.of(-1, -1, 2),
+            List.of(-1, 0, 1)
+        );
+    }
+
+    @Test
+    public void when_large_array_with_multiple_triplets() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(-4);
+        numbers.add(-2);
+        numbers.add(-2);
+        numbers.add(-2);
+        numbers.add(0);
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(2);
+        numbers.add(2);
+        numbers.add(4);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactlyInAnyOrder(
+            List.of(-4, 0, 4),
+            List.of(-4, 2, 2),
+            List.of(-2, -2, 4),
+            List.of(-2, 0, 2)
+        );
+    }
+
+    @Test
+    public void when_duplicates_should_not_return_duplicate_triplets() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(0);
+        numbers.add(0);
+        numbers.add(0);
+        numbers.add(0);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactly(List.of(0, 0, 0));
+    }
+
+    @Test
+    public void when_many_duplicates_with_valid_triplets() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(-2);
+        numbers.add(-2);
+        numbers.add(-2);
+        numbers.add(1);
+        numbers.add(1);
+        numbers.add(1);
+        numbers.add(1);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactly(List.of(-2, 1, 1));
+    }
+
+    @Test
+    public void when_mixed_values_with_zeros() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(-3);
+        numbers.add(0);
+        numbers.add(0);
+        numbers.add(0);
+        numbers.add(3);
+        numbers.add(3);
+        numbers.add(-3);
+
+        var result = this.tripletSum.tripletSum(numbers);
+        Assertions.assertThat(result).containsExactlyInAnyOrder(
+            List.of(-3, 0, 3),
+            List.of(0, 0, 0)
+        );
+    }
 }
