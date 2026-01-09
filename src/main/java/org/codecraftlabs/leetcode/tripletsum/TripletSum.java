@@ -18,7 +18,7 @@ public class TripletSum {
             }
 
             // Move forward if the number is the same value as the previous one
-            if (index > 0 && numbers.get(index) == numbers.get(index - 1)) {
+            if (index > 0 && Objects.equals(numbers.get(index), numbers.get(index - 1))) {
                 continue;
             }
 
