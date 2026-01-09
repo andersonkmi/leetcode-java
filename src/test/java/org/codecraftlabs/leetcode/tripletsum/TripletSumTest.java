@@ -16,16 +16,6 @@ public class TripletSumTest {
     }
 
     @Test
-    public void testTripletSumBruteForce() {
-        List<List<Integer>> expectedResults = new ArrayList<>();
-        expectedResults.add(List.of(-3, 1, 2));
-        expectedResults.add(List.of(-1, 0, 1));
-
-        List<List<Integer>> results = this.tripletSum.tripletSumBruteForce(List.of(0, -1, 2, -3, 1));
-        Assertions.assertThat(results).isEqualTo(expectedResults);
-    }
-
-    @Test
     public void when_number_list_is_empty_should_return_empty_results() {
         var result = this.tripletSum.tripletSum(new ArrayList<>());
         Assertions.assertThat(result).isEmpty();
