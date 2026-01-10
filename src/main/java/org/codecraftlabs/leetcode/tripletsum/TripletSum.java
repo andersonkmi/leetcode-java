@@ -13,6 +13,9 @@ public class TripletSum {
         // Sort the input array
         Collections.sort(numbers);
         for (int index = 0; index < numbers.size(); index++) {
+            // If the number is positive, then we can stop
+            // searching for other numbers since positive numbers when
+            // processed will never result to 0
             if (numbers.get(index) > 0) {
                 break;
             }
