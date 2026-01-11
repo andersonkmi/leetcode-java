@@ -8,10 +8,11 @@ import java.util.Objects;
 
 public class TripletSum {
     @Nonnull
-    public List<List<Integer>> tripletSum(@Nonnull List<Integer> numbers) {
-        List<List<Integer>> triplets = new ArrayList<>();
+    public List<Triplet<Integer>> tripletSum(@Nonnull List<Integer> numbers) {
+        List<Triplet<Integer>> triplets = new ArrayList<>();
         // Sort the input array
         Collections.sort(numbers);
+
         for (int index = 0; index < numbers.size(); index++) {
             // If the number is positive, then we can stop
             // searching for other numbers since positive numbers when
@@ -28,9 +29,7 @@ public class TripletSum {
             // Find the triplets
             var results = findAllPairsWithSum(numbers, index + 1, numbers.get(index) * -1);
             for (List<Integer> pair : results) {
-                List<Integer> triplet = new ArrayList<>();
-                triplet.add(numbers.get(index));
-                triplet.addAll(pair);
+                Triplet<Integer> triplet = Triplet.of(numbers.get(index), pair.get(0), pair.get(1));
                 triplets.add(triplet);
             }
         }
@@ -38,7 +37,9 @@ public class TripletSum {
     }
 
     @Nonnull
-    private List<List<Integer>> findAllPairsWithSum(@Nonnull List<Integer> numbers, int startPosition, int target) {
+    private List<List<Integer>> findAllPairsWithSum(@Nonnull List<Integer> numbers,
+                                                    int startPosition,
+                                                    int target) {
         List<List<Integer>> pairs = new ArrayList<>();
         int left = startPosition;
         int right = numbers.size() - 1;

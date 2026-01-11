@@ -48,7 +48,8 @@ public class TripletSumTest {
         numbers.add(0);
 
         var result = this.tripletSum.tripletSum(numbers);
-        Assertions.assertThat(result).containsExactly(List.of(0, 0, 0));
+        Triplet<Integer> expected = Triplet.of(0, 0, 0);
+        Assertions.assertThat(result).containsExactly(expected);
     }
 
     @Test
@@ -73,7 +74,8 @@ public class TripletSumTest {
         numbers.add(-1);
 
         var result = this.tripletSum.tripletSum(numbers);
-        Assertions.assertThat(result).containsExactly(List.of(-1, 0, 1));
+        Triplet<Integer> expected = Triplet.of(-1, 0, 1);
+        Assertions.assertThat(result).containsExactly(expected);
     }
 
     @Test
@@ -84,7 +86,8 @@ public class TripletSumTest {
         numbers.add(1);
 
         var result = this.tripletSum.tripletSum(numbers);
-        Assertions.assertThat(result).containsExactly(List.of(-1, 0, 1));
+        Triplet<Integer> expected = Triplet.of(-1, 0, 1);
+        Assertions.assertThat(result).containsExactly(expected);
     }
 
     @Test
@@ -136,8 +139,8 @@ public class TripletSumTest {
 
         var result = this.tripletSum.tripletSum(numbers);
         Assertions.assertThat(result).containsExactlyInAnyOrder(
-            List.of(-1, -1, 2),
-            List.of(-1, 0, 1)
+                Triplet.of(-1, -1, 2),
+                Triplet.of(-1, 0, 1)
         );
     }
 
@@ -157,10 +160,10 @@ public class TripletSumTest {
 
         var result = this.tripletSum.tripletSum(numbers);
         Assertions.assertThat(result).containsExactlyInAnyOrder(
-            List.of(-4, 0, 4),
-            List.of(-4, 2, 2),
-            List.of(-2, -2, 4),
-            List.of(-2, 0, 2)
+            Triplet.of(-4, 0, 4),
+            Triplet.of(-4, 2, 2),
+            Triplet.of(-2, -2, 4),
+            Triplet.of(-2, 0, 2)
         );
     }
 
@@ -173,7 +176,7 @@ public class TripletSumTest {
         numbers.add(0);
 
         var result = this.tripletSum.tripletSum(numbers);
-        Assertions.assertThat(result).containsExactly(List.of(0, 0, 0));
+        Assertions.assertThat(result).containsExactly(Triplet.of(0, 0, 0));
     }
 
     @Test
@@ -188,7 +191,7 @@ public class TripletSumTest {
         numbers.add(1);
 
         var result = this.tripletSum.tripletSum(numbers);
-        Assertions.assertThat(result).containsExactly(List.of(-2, 1, 1));
+        Assertions.assertThat(result).containsExactly(Triplet.of(-2, 1, 1));
     }
 
     @Test
@@ -204,8 +207,8 @@ public class TripletSumTest {
 
         var result = this.tripletSum.tripletSum(numbers);
         Assertions.assertThat(result).containsExactlyInAnyOrder(
-            List.of(-3, 0, 3),
-            List.of(0, 0, 0)
+            Triplet.of(-3, 0, 3),
+            Triplet.of(0, 0, 0)
         );
     }
 }
