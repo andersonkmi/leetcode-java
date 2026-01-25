@@ -4,7 +4,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-class PairSum {
+public class PairSum {
     @Nonnull
     List<Integer> pairSum(@CheckForNull List<Integer> numbers, int target) {
         if (numbers == null) {
