@@ -35,4 +35,10 @@ public class PalindromeValidatorTest {
         boolean result = this.palindromeValidator.isValid("ab");
         Assertions.assertThat(result).isFalse();
     }
+
+    @Test
+    public void when_string_has_no_alphanumeric_chars_should_return_true() {
+        boolean result = this.palindromeValidator.isValid("( ! ,(?)");
+        Assertions.assertThat(result).isTrue();
+    }
 }
