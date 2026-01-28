@@ -53,4 +53,10 @@ public class PalindromeValidatorTest {
         boolean result = this.palindromeValidator.isValid("21.02.2021");
         Assertions.assertThat(result).isFalse();
     }
+
+    @Test
+    public void when_non_palindrome_has_punctuation_should_return_false() {
+        boolean result = this.palindromeValidator.isValid("hello, world!");
+        Assertions.assertThat(result).isFalse();
+    }
 }
