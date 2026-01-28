@@ -17,4 +17,10 @@ public class PalindromeValidatorTest {
         boolean result = this.palindromeValidator.isValid("");
         Assertions.assertThat(result).isTrue();
     }
+    
+    @Test
+    public void when_string_has_one_character_should_return_true() {
+        boolean result = this.palindromeValidator.isValid("a");
+        Assertions.assertThat(result).isTrue();
+    }
 }
