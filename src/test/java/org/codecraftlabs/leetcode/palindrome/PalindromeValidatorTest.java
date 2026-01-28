@@ -59,4 +59,48 @@ public class PalindromeValidatorTest {
         boolean result = this.palindromeValidator.isValid("hello, world!");
         Assertions.assertThat(result).isFalse();
     }
+
+    @Test
+    public void when_palindrome_has_mixed_case_should_handle_correctly() {
+        // Note: Current impl is case-sensitive, so "Aa" returns false
+        boolean result = this.palindromeValidator.isValid("Aa");
+        Assertions.assertThat(result).isFalse();
+    }
+
+    @Test
+    public void when_classic_palindrome_word_should_return_true() {
+        Assertions.assertThat(this.palindromeValidator.isValid("racecar")).isTrue();
+        Assertions.assertThat(this.palindromeValidator.isValid("level")).isTrue();
+        Assertions.assertThat(this.palindromeValidator.isValid("madam")).isTrue();
+    }
+
+    @Test
+    public void when_palindrome_has_spaces_should_return_true() {
+        boolean result = this.palindromeValidator.isValid("race car");
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    public void when_odd_length_palindrome_should_return_true() {
+        boolean result = this.palindromeValidator.isValid("aba");
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    public void when_numeric_palindrome_should_return_true() {
+        boolean result = this.palindromeValidator.isValid("12321");
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    public void when_palindrome_has_leading_trailing_special_chars_should_return_true() {
+        boolean result = this.palindromeValidator.isValid("...racecar...");
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    public void when_longer_non_palindrome_should_return_false() {
+        boolean result = this.palindromeValidator.isValid("abcdef");
+        Assertions.assertThat(result).isFalse();
+    }
 }
