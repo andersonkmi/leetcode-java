@@ -29,4 +29,10 @@ public class PalindromeValidatorTest {
         boolean result = this.palindromeValidator.isValid("aa");
         Assertions.assertThat(result).isTrue();
     }
+
+    @Test
+    public void when_non_palindrome_has_two_chars_should_return_false() {
+        boolean result = this.palindromeValidator.isValid("ab");
+        Assertions.assertThat(result).isFalse();
+    }
 }
